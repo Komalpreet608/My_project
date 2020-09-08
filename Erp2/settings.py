@@ -30,7 +30,7 @@ SECRET_KEY = '2e3af47f-409b-44fd-81ae-ea1ec63eb21a'
 DEBUG = False
 #DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1','erp1-system.herokuapp.com']
+ALLOWED_HOSTS = ['127.0.0.1', 'erp1-system.herokuapp.com']
 #ALLOWED_HOSTS = []
 
 
@@ -47,14 +47,14 @@ INSTALLED_APPS = [
     'system1'
 ]
 
-MIDDLEWARE_CLASSES= [
+MIDDLEWARE_CLASSES = [
     'django.middleware.security.SecurityMiddleware',
-    #'django.contrib.sessions.middleware.SessionMiddleware',
+    # 'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
-    #'django.contrib.auth.middleware.AuthenticationMiddleware',
+    # 'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
-    #'django.contrib.messages.middleware.MessageMiddleware',
+    # 'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
@@ -69,7 +69,7 @@ ROOT_URLCONF = 'Erp2.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR,'system1/templates')],
+        'DIRS': [os.path.join(BASE_DIR, 'system1/templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -135,14 +135,16 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 STATIC_ROOT = posixpath.join(*(BASE_DIR.split(os.path.sep) + ['system1']))
-files = os.listdir(os.path.join(settings.STATIC_ROOT, "static"))
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static'),
+]
 
-#Email Settings
-EMAIL_USE_TLS=True
-EMAIL_HOST= 'smtp.gmail.com'
-EMAIL_PORT=587
-EMAIL_HOST_USER='preetkomal608@gmail.com'
-EMAIL_HOST_PASSWORD='7komal608'
+# Email Settings
+EMAIL_USE_TLS = True
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'preetkomal608@gmail.com'
+EMAIL_HOST_PASSWORD = '7komal608'
 
 
 #PROJECT_ROOT = os.path.join(BASE_DIR,'app')
@@ -153,4 +155,3 @@ EMAIL_HOST_PASSWORD='7komal608'
 #
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
-
