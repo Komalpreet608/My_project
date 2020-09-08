@@ -1,0 +1,281 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>{% load static %}ERP</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700|Raleway:300,400,500,600,700" rel="stylesheet">
+      <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+      <link rel="stylesheet" href="{% static 'css/owl.carousel.min.css' %}">
+      <link rel="stylesheet" href="{% static 'css/animate.css' %}">
+      <link rel="stylesheet" href="{% static 'css/magnific-popup.css' %}">
+      <link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}">
+      <link rel="stylesheet" href="{% static 'css/classy-nav.min.css' %}">
+
+    <!-- Favicon -->
+    <link rel="icon" href="{% static 'img/core-img/favicon.ico' %}">
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <script type="text/javascript">
+      var result;
+    $(document).ready(function(){
+        // Branch
+        var br_arr = new Array("Select Branch","CSE","ECE","ME","CE");
+
+        $.each(br_arr, function (i, item) {
+            $('#br').append($('<option>', {
+                value: i,
+                text : item,
+            }, '</option>' ));
+        });
+
+        // Semester
+        var s_a = new Array();
+        s_a[0]="Select Semester";
+        s_a[1]="Select Semester|CSE-1|CSE-2|CSE-3";
+        s_a[2]="Select Semester|ECE-1|ECE-2|ECE-3";
+        s_a[3]="Select Semester|ME-1|ME-2|ME-3";
+        s_a[4]="Select Semester|CE-1|CE-2|CE-3";
+        
+        // Cities
+        var c_a = new Array();
+        c_a[1]= c_a['CSE-1']="M1|ENGLISH|PHYSICS";
+        c_a[1]=c_a['CSE-2'] = "M2|CHEMISTRY|EVS";
+        c_a[1]=c_a['CSE-3'] = "OOPS|CA";
+
+        c_a[2]=c_a['ECE-1'] = "M1|ENGLISH|PHYSICS";
+        c_a[2]=c_a['ECE-2'] = "M2|CHEMISTRY|EVS";
+        c_a[2]=c_a['ECE-3'] = "A|B";
+
+        c_a[1]=c_a['ME-1'] = "M1|ENGLISH|PHYSICS";
+        c_a[2]=c_a['Me-2'] = "M2|CHEMISTRY|EVS";
+        c_a[3]=c_a['ME-3'] = "X|Y";
+
+        c_a[1]=c_a['CE-1'] = "M1|ENGLISH|PHYSICS";
+        c_a[2]=c_a['CE-2'] = "M2|CHEMISTRY|EVS";
+        c_a[3]=c_a['CE-3'] = "Z";
+        
+
+
+        $('#br').change(function(){
+            var c = $(this).val();
+            //alert(country_arr[c]);
+            result = br_arr[c];
+            $("#hbr").val(result);
+            var state_arr = s_a[c].split("|");
+            $('#sem').empty();
+            $('#sub').empty();
+            if(c==0){
+                $('#sem').append($('<option>', {
+                    value: '0',
+                    text: 'Select Semester',
+                }, '</option>'));
+            }else {
+                $.each(state_arr, function (i, item_state) {
+                    $('#sem').append($('<option>', {
+                        value: item_state,
+                        text: item_state,
+                    }, '</option>'));
+                });
+            }
+            $('#sub').append($('<option>', {
+                value: '0',
+                text: 'Select Subject',
+            }, '</option>'));
+        });
+
+        $('#sem').change(function(){
+            var s = $(this).val();
+            if(s=='Select Semester'){
+                $('#sub').empty();
+                $('#sub').append($('<option>', {
+                    value: '0',
+                    text: 'Select Subject',
+                }, '</option>'));
+            }
+            var city_arr = c_a[s].split("|");
+            $('#sub').empty();
+
+            $.each(city_arr, function (j, item_city) {
+                $('#sub').append($('<option>', {
+                    value: item_city,
+                    text: item_city,
+                }, '</option>'));
+            });
+
+
+        });
+    });
+</script>
+
+
+<style>
+    .topnav {
+        padding:15px;
+  overflow: hidden;
+  background-color: #008080;
+}
+
+.topnav a {
+  float: left;
+   text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+
+
+.topnav input[type=text] {
+  float: right;
+  padding: 6px;
+  margin-top: 10px;
+  margin-right: 50px;
+  border: none;
+  font-size: 17px;
+  border-radius:7px;
+}
+
+    @media screen and (max-width: 600px) {
+        .topnav a, .topnav input[type=text] {
+            float: none;
+            display: block;
+            text-align: left;
+            width: 60%;
+            margin: 0;
+            padding: 4px;
+        }
+        .topnav btn{float: none;
+            display: block;
+            text-align: center;
+            width: 100%;
+            margin-bottom: 10px;
+            padding: 10px;}
+        .topnav input[type=text] {
+            border: 1px solid #ccc;
+        }
+        .btn{float:left;}
+    }
+    #br{height:40px;
+     font-size:20px;
+}
+    #sem{height:40px;
+     font-size:20px;
+}
+    #sub{height:40px;
+     font-size:20px;
+}
+#customers {
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#customers td, #customers th {
+  border: 2px solid #ddd;
+  padding: 8px;
+}
+
+#customers tr:nth-child(even){background-color: #f2f2f2;}
+
+#customers tr:hover {background-color: #ddd;}
+
+#customers th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: center;
+  font-size: 15px;
+  background-color: gray;
+  color: white;
+}#abc{width:250px;
+    font-size:15px;
+}
+</style>
+</head>
+<body>
+   <br />
+    
+    {% autoescape off %}
+    {{ var.text }}
+{% endautoescape %}
+
+    {% if students %}
+     <div class="topnav">
+  <!-- Logo -->
+  <a class="nav-brand" href="" ><h1 style="color:white">MST REPORT</h1></a>
+            <button type="button" class="btn " style="float:right;margin-right:13px;height:45px;margin-top:5px"  > 
+             <a href="{%url 'Teacher' %}" style="color:#008080;padding-top:2px" >BACK</a></button>
+            
+<form>
+<input type="text"  id="search" placeholder="Search.."> 
+                                </form>
+                     
+</div>       
+<table id="customers">
+    <thead>
+  <tr>
+        <th>Branch</th>
+        <th>Sem</th>
+        <th>Subject</th>
+        <th>Action</th>
+  </tr></thead>
+     {% for Useradd in students %}
+     
+          
+    <tbody id="myTable">
+        <tr>
+            
+            <td>{{ Useradd.br }}</td>
+            <td>{{ Useradd.sem }}</td>
+            <td>{{ Useradd.sub }}</td>
+         
+           
+           
+            <td>
+              
+ <a href="/Attedit2/{{Useradd.sem}}/{{Useradd.br}}/{{Useradd.sub}}" style="color:#008080;background-color:#ccc;border-radius:5px;padding:8px;" >
+               <b>ADD MST1 REPORT</b> </a>
+                <a href="/Attedit3/{{Useradd.sem}}/{{Useradd.br}}/{{Useradd.sub}}" style="color:#008080;background-color:#ccc;border-radius:5px;padding:8px;margin-left:5px" >
+               <b>ADD MST2 REPORT</b> </a>
+
+     <a href="/mstinfo/{{Useradd.sem}}/{{Useradd.br}}/{{Useradd.sub}}" style="color:#008080;background-color:#ccc;border-radius:5px;padding:8px;margin-left:5px" >
+            <b>SHOW MST1</b>  </a>
+                <a href="/mstinfo2/{{Useradd.sem}}/{{Useradd.br}}/{{Useradd.sub}}" style="color:#008080;background-color:#ccc;border-radius:5px;padding:8px;margin-left:5px" >
+            <b>SHOW MST2</b>  </a>
+   
+   
+               </td>  
+   
+        </tr></tbody>
+   
+{% endfor %}
+          
+              
+          </table>
+         {% else %}
+    <br />{% if message %}
+   <h5><div class="container alert alert-success alert-dismissible"> <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>{{message}}</div></h5>{% endif %}
+  
+        
+          {% endif %}
+
+  <script>
+$(document).ready(function(){
+  $("#search").on("keyup", function() {
+    var value = $(this).val().toLowerCase();
+    $("#myTable tr").filter(function() {
+      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+    });
+  });
+});
+</script>
+
+
+</body>
+</html>
+

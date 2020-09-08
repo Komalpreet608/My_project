@@ -1,0 +1,324 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- The above 4 meta tags *Must* come first in the head; any other head content must come *after* these tags -->
+
+    <!-- Title -->
+    <title>{% load static %}ERP</title>
+      <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700|Raleway:300,400,500,600,700" rel="stylesheet">
+      <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+      <link rel="stylesheet" href="{% static 'css/owl.carousel.min.css' %}">
+      <link rel="stylesheet" href="{% static 'css/animate.css' %}">
+      <link rel="stylesheet" href="{% static 'css/magnific-popup.css' %}">
+      <link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}">
+      <link rel="stylesheet" href="{% static 'css/classy-nav.min.css' %}">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+   
+    <!-- Favicon -->
+    <link rel="icon" href="{% static 'img/core-img/favicon.ico' %}">
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <style>h5{font-size:17px;}</style>
+
+</head>
+
+<body>
+    <!-- Preloader -->
+    <div id="preloader">
+        <div class="spinner"></div>
+    </div>
+
+    <!-- ##### Header Area Start ##### -->
+    <header class="header-area">
+
+        <!-- Top Header Area -->
+        <div class="top-header-area d-flex justify-content-between align-items-center">
+            <!-- Contact Info -->
+            <div class="contact-info">
+                <a href="#"><span>Phone:</span> 9779251682</a>
+                <a href="#"><span>Email:</span> preetkomal843@gmail.com</a>
+            </div>
+            <!-- Follow Us -->
+            <div class="follow-us">
+                <span>Follow us</span>
+                <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+                <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+            </div>
+        </div>
+
+        <!-- Navbar Area -->
+        <div class="clever-main-menu ">
+            <div class="classy-nav-container breakpoint-off">
+                <!-- Menu -->
+                <nav class="classy-navbar justify-content-between" id="cleverNav">
+
+                    <!-- Logo -->
+                    <a class="nav-brand" href="{%url 'home'%}"><img src="{% static 'img/ERPPP.png' %}" width="250px" height="250px"/></a>
+
+                    <!-- Navbar Toggler -->
+                    <div class="classy-navbar-toggler">
+                        <span class="navbarToggler"><span></span><span></span><span></span></span>
+                    </div>
+
+                    <!-- Menu -->
+                    <div class="classy-menu">
+
+                        <!-- Close Button -->
+                        <div class="classycloseIcon">
+                            <div class="cross-wrap"><span class="top"></span><span class="bottom"></span></div>
+                        </div>
+
+                        <!-- Nav Start -->
+                        <div class="classynav">
+                            <ul>
+                                <li class="active"><a href="{%url 'home'%}"><h5 >HOME</h5></a></li>
+                                <li><a href="{%url 'about'%}"><h5>ABOUT_US</h5></a>
+                                 </li>
+                                
+                    
+                                <li><a href="{%url 'saved'%}"><h5>GALLERY</h5></a></li>
+                    
+                                
+                                <li><a href="{%url 'contact'%}"><h5>CONTACT_US</h5></a></li>
+                            </ul>
+
+                            
+                            <!-- Register / Login -->
+                            <div class="register-login-area ml-50 mr-40">
+                                
+                              <a href="#" class="btn active dropdown-toggle" data-toggle="dropdown">Events</a>
+                                <ul class="dropdown-menu" style="background-color:white;height:100px">
+                                 <li><a href="{%url 'register'%}">Registeration</a></li> <br />
+                                    
+                                 <li><a href="{%url 'eventdetails'%}">Events List </a></li> 
+                                </ul>
+                                
+                                <a href="{% url 'login1' %}" class="btn active">Login</a>
+                            </div>
+
+                        </div>
+                        <!-- Nav End -->
+                    </div>
+
+                </nav>
+                <div class="container-fluid" style="width:100%;height:5px;background-color:#4cff00"></div>
+            </div>
+        </div>
+    </header>
+    <!-- ##### Header Area End ##### -->
+   			
+
+    <!-- ##### Hero Area Start ##### -->
+    <section class="hero-area bg-img bg-overlay-2by5" style="background-image:url({% static 'img/college.jpg' %});" data-aos="fade">
+        <div class="container h-100">
+            <div class="row h-100 align-items-center">
+                <div class="col-12">
+                    <!-- Hero Content -->
+                    <div class="hero-content text-center wow fadeInUp" data-wow-delay="500ms">
+                        <div class="w3-display-middle w3-margin-top w3-center">
+                        <h1 class="w3-xxlarge w3-text-white"><span class="w3-padding w3-black w3-opacity-min" ><b>ERP</b></span>
+                        <span  style= "color: white;text-shadow: 1px 1px 2px black, 0 0 25px #000000, 0 0 5px #000000;font-size:40px">Enterprises Resource Planning </span></h1>
+  </div>
+                       
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ##### Hero Area End ##### -->
+
+    
+   
+    <!-- ##### Register Now Start ##### -->
+    <section class="register-now section-padding-100-0 d-flex justify-content-between align-items-center" style="background-image:url({% static 'img/core-img/texture.png' %});">
+        <!-- Register Contact Form -->
+        
+            <div class="container-fluid mb-100 wow fadeInUp" data-wow-delay="250ms">
+                <div class="row mb-5">
+          <div class="col-12 text-center wow fadeInUp" data-wow-delay="250ms" >
+            <h2 class="section-title mb-3" style= "color: white;
+  text-shadow: 1px 1px 2px black, 0 0 25px black, 0 0 5px black;font-size:50px">ERP
+               </h2>
+          </div>
+        </div>
+               <div class="col-md-12">
+                <div class="row">
+                    <div class="col-md-6 ">
+                        
+                         <img src="{% static 'img/hero_2.jpg' %}" alt="Image" class="img-fluid" >
+            
+                         </div>
+                    <div class="col-md-6 "><br><p>ERP School/college/university Management Module which is used by Schools as well as Colleges to manage their daily activities which include the management of Employees, Students Records, Parents details, Assignments, Results and Reports, Exams,  Attendance, Timetable, Other Reports. It provides one-point access to manage these wide range of activities both effectively and efficiently. Managing a school, university, college or any educational institution without a perfect software solution in the present times is painful, same in the case of any enterprises or business. Hence an appropriate solution is required which can ensure the smooth functioning of the organization as a whole, and with ERP college Management Module, this problem can simply be solved.</p>
+            </div>
+                            
+                    
+                   </div></div>
+            
+        </div>
+
+        <!-- Register Now Countdown -->
+        </section>
+    <!-- ##### Register Now End ##### -->
+    <!-- ##### Cool Facts Area Start ##### -->
+    <section class="cool-facts-area section-padding-100-0">
+        <div class="container">
+            <div class="row">
+                
+
+                <!-- Single Cool Facts Area -->
+                <div class="col-12 col-sm-6 col-lg-4">
+                    <div class="single-cool-facts-area text-center mb-100 wow fadeInUp" data-wow-delay="500ms">
+                        <div class="icon">
+                            <img src="{% static 'img/core-img/star.png' %}" alt="">
+                        </div>
+                        <h2 style="color:#4cff00"><span class="counter">80</span></h2>
+                        <h5>CERTIFIED TEACHERS</h5>
+                    </div>
+                </div>
+
+                <!-- Single Cool Facts Area -->
+                <div class="col-12 col-sm-6 col-lg-4">
+                    <div class="single-cool-facts-area text-center mb-100 wow fadeInUp" data-wow-delay="750ms">
+                        <div class="icon">
+                            <img src="{% static 'img/core-img/earth.png' %}" alt="">
+                        </div>
+                        <h2 style="color:#4cff00"><span class="counter">700</span></h2>
+                        <h5>STUDENTS ENROLLED</h5>
+                    </div>
+                </div>
+
+                <!-- Single Cool Facts Area -->
+                <div class="col-12 col-sm-6 col-lg-4">
+                    <div class="single-cool-facts-area text-center mb-100 wow fadeInUp" data-wow-delay="1000ms">
+                        <div class="icon">
+                            <img src="{% static 'img/core-img/docs.png' %}" alt="">
+                        </div>
+                        <h2 style="color:#4cff00"><span class="counter">4</span></h2>
+                        <h5>AVAILABLE COURSES</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ##### Cool Facts Area End ##### -->
+
+    
+
+    <!-- ##### Upcoming Events Start ##### -->
+    <section class="upcoming-events section-padding-50-0">
+        <div class="container">
+            <div class="row">
+                <!-- Single Upcoming Events -->
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="single-upcoming-events mb-50 wow fadeInUp" data-wow-delay="250ms">
+                        <!-- Events Thumb -->
+                        <div class="events-thumb">
+                            <img src="{% static 'img/bg-img/e1.jpg' %}" alt="">
+                            </div>
+                        <!-- Date & Fee -->
+                                          </div>
+                </div>
+
+                <!-- Single Upcoming Events -->
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="single-upcoming-events mb-50 wow fadeInUp" data-wow-delay="500ms">
+                        <!-- Events Thumb -->
+                        <div class="events-thumb">
+                            <img src="{% static 'img/bg-img/e2.jpg' %}" alt="">
+                            </div>
+                         </div>
+                </div>
+
+                <!-- Single Upcoming Events -->
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="single-upcoming-events mb-50 wow fadeInUp" data-wow-delay="750ms">
+                        <!-- Events Thumb -->
+                        <div class="events-thumb">
+                            <img src="{% static 'img/bg-img/e3.jpg' %}" alt="">
+                            </div>
+                        </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ##### Upcoming Events End ##### -->
+
+    <!-- ##### Footer Area Start ##### -->
+    <footer class="footer-area">
+        <!-- Top Footer Area -->
+        <div class="top-footer-area">
+            <div class="container">
+                <div class="row">
+            <div class="col-md-12">
+            <div class="row">
+              <div class="col-md-4">
+                <h3 class="footer-heading mb-4">About Us</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque facere laudantium magnam voluptatum autem. Amet aliquid nesciunt veritatis aliquam.</p>
+              </div>
+                <div class="col-md-4">
+                <h3 class="footer-heading mb-4">Addresss</h3>
+                <ul class="list-unstyled">
+            <li class="mb-2">Lyallpur Khalsa College of Engineering,Jalandhar</li>
+            <li class="mb-2">987654321</li>
+            <li class="mb-2">987654331</li>
+            <li class="mb-2">preetkomal843@gmail.com</li>
+          </ul></div>
+              
+              <div class="col-md-4 ml-auto">
+                <h3 class="footer-heading mb-4 ">Quick Links</h3>
+                <ul class="list-unstyled">
+                  <li><a href="{%url 'about'%}">About Us</a></li>
+                  <li><a href="{%url 'home'%}" >Services</a></li>
+                  <li><a href="{%url 'home'%}">Home</a></li>
+                  <li><a href="{%url 'contact'%}">Contact Us</a></li>
+                </ul>
+              </div>
+          
+                </div>
+                </div>
+                </div>
+            </div>
+        <br>
+             <p><a href="#"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                 Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | <i class="fa fa-heart-o" aria-hidden="true"></i></a> </p><br></div>
+<!-- Link back to Color
+
+        <!-- Bottom Footer Area -->
+        <div class="bottom-footer-area d-flex justify-content-between align-items-center">
+            <!-- Contact Info -->
+            <div class="contact-info">
+                <a href="#"><span>Phone:</span>9779251682</a>
+                <a href="#"><span>Email:</span> preetkomal843@gmail.com</a>
+            </div>
+            <!-- Follow Us -->
+            <div class="follow-us">
+                <span>Follow us</span>
+                <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+                <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+            </div>
+        </div>
+    </footer>
+    <!-- ##### Footer Area End ##### -->
+
+    <!-- ##### All Javascript Script ##### -->
+    <!-- jQuery-2.2.4 js -->
+    <script src="{% static 'js/jquery/jquery-2.2.4.min.js' %}"></script>
+    <!-- Popper js -->
+    <script src="{% static 'js/bootstrap/popper.min.js' %}"></script>
+    <!-- Bootstrap js -->
+    <script src="{% static 'js/bootstrap/bootstrap.min.js' %}"></script>
+    <!-- All Plugins js -->
+    <script src="{% static 'js/plugins/plugins.js' %}"></script>
+    <!-- Active js -->
+    <script src="{% static 'js/active.js' %}"></script>
+</body>
+
+</html>

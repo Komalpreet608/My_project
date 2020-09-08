@@ -1,0 +1,13 @@
+MODES
+_layerinfo
+PsdImageFile
+i32
+ImagePalette
+i8
+i16
+_maketile
+ImageFile
+_accept
+io
+Image
+__version__

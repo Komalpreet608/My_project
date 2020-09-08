@@ -1,0 +1,4 @@
+django
+set_cached_value_by_field
+get_cached_value
+set_cached_value_by_descriptor

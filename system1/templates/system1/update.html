@@ -1,0 +1,323 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- The above 4 meta tags *Must* come first in the head; any other head content must come *after* these tags -->
+
+    <!-- Title -->
+   <title>{% load static %}ERP</title>
+
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700|Raleway:300,400,500,600,700" rel="stylesheet">
+      <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+      <link rel="stylesheet" href="{% static 'css/owl.carousel.min.css' %}">
+      <link rel="stylesheet" href="{% static 'css/animate.css' %}">
+      <link rel="stylesheet" href="{% static 'css/magnific-popup.css' %}">
+      <link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}">
+      <link rel="stylesheet" href="{% static 'css/classy-nav.min.css' %}">
+
+    <!-- Favicon -->
+    <link rel="icon" href="{% static 'img/core-img/favicon.ico' %}">
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <script type="text/javascript">
+      var result;
+    $(document).ready(function(){
+        // Branch
+        var branch_arr = new Array("Select Branch","CSE","ECE","ME","CE");
+
+        $.each(branch_arr, function (i, item) {
+            $('#branch').append($('<option>', {
+                value: i,
+                text : item,
+            }, '</option>' ));
+        });
+
+        // Semester
+        var s_a = new Array();
+        s_a[0] = "Select Semester";
+        s_a[1] = "Select Semester|CSE1|CSE2|CSE3|CSE4|CSE5|CSE6|CSE7|CSE8";
+        s_a[2] = "Select Semester|ECE1|ECE2|ECE3|ECE4|ECE5|ECE6|ECE7|ECE8";
+        s_a[3] = "Select Semester|ME1|ME2|ME3|ME4|ME5|ME6|ME7|ME8";
+        s_a[4] = "Select Semester|CE1|CE2|CE3|CE4|CE5|CE6|CE7|CE8";
+
+        
+
+
+        $('#branch').change(function(){
+            var c = $(this).val();
+            //alert(country_arr[c]);
+            result = branch_arr[c];
+            $("#hbr").val(result);
+            var state_arr = s_a[c].split("|");
+            $('#sem').empty();
+            $('#sub').empty();
+            if(c==0){
+                $('#sem').append($('<option>', {
+                    value: '0',
+                    text: 'Select Semester',
+                }, '</option>'));
+            }else {
+                $.each(state_arr, function (i, item_state) {
+                    $('#sem').append($('<option>', {
+                        value: item_state,
+                        text: item_state,
+                    }, '</option>'));
+                });
+            }
+           
+        });
+
+    });
+</script>
+
+<style>
+        #b{
+            background-color: #008080;
+            color: white; 
+        }
+         
+            #btn1{
+            text-align: center;
+            background-color:  #008080;
+            font-size:20px;
+            width: 70%;
+            
+            
+        }
+             .border{
+                box-shadow:0 4px 8px rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+            }
+              @media screen and (max-width: 600px) {
+       
+        #x1{display:none;}
+        
+        
+    }
+           
+#x{
+    float:right;   
+}
+</style>
+
+</head>
+
+<body>
+    <!-- Preloader -->
+    <div id="preloader">
+        <div class="spinner"></div>
+    </div>
+
+    <!-- ##### Header Area Start ##### -->
+    <header class="header-area">
+
+       <br />
+        <!-- Navbar Area -->
+        <div class="clever-main-menu ">
+            <div class="classy-nav-container breakpoint-off">
+                <!-- Menu -->
+                <nav class="classy-navbar justify-content-between" id="cleverNav">
+
+                    <!-- Logo -->
+                   <a class="nav-brand" href="{%url 'home'%}"><img src="{% static 'img/add1.png' %}" height="60" width="70" style="float:left;"/>
+                    <h2 style="color:white;float:left;"><b>Update Details</b></h2></a>
+
+                    <!-- Navbar Toggler -->
+                    <div class="classy-navbar-toggler">
+                        <span class="navbarToggler"><span></span><span></span><span></span></span>
+                    </div>
+
+                    <!-- Menu -->
+                    <div class="classy-menu">
+
+                        <!-- Close Button -->
+                        <div class="classycloseIcon">
+                            <div class="cross-wrap"><span class="top"></span><span class="bottom"></span></div>
+                        </div>
+
+                        
+                            
+                            <!-- Register / Login -->
+                            <div class="register-login-area ml-50 mr-40">
+                                
+                                <a href="{%url 'info'%}" class="btn active">BACK</a>
+                             </div>
+
+                        </div>
+                        <!-- Nav End -->
+                    
+                </nav>
+            </div>
+        </div>
+    </header>
+    <!-- ##### Header Area End ##### -->
+   
+    <br />
+      <div class="container ">
+        <div class="row">
+            <div class="col-lg-12  mx-auto p-5 border">
+                <form method="post" action="/update/{{Useradd.rno}}">
+             {% csrf_token %}
+        
+                  <div class="row mt-8">
+                        <div class="col-md-5" >
+                            <label for=""><b>First Name</b></label>
+                            <input type="text" name="fn" class="form-control" placeholder="First Name" value="{{ Useradd.fn }}" required /></div>
+                    <div class="col-md-2" ></div>
+                    <div class="col-md-5" >
+                        <label for=""><b>Last Name</b></label>
+                            <input type="text" name="ln" class="form-control" placeholder="Last Name"  value="{{ Useradd.ln }}" required/>
+                    </div>
+                </div><br>
+                <div class="row mt-8">
+                        <div class="col-md-5" >
+                            <label for=""><b>University Roll no.</b></label>
+                            <input type="text" name="rno" class="form-control" pattern="[0-9]{7}" placeholder="Rollno" value="{{ Useradd.rno }}" readonly/></div>
+                <div class="col-md-2" ></div>
+                    <div class="col-md-5" >
+                       <label for=""><b>User password</b></label>
+                            <input type="text" name="password" class="form-control" placeholder="password" value="{{ Useradd.password }}" required/></div></div><br />
+                
+                <div class="row mt-8">
+                        <div class="col-md-5" >
+                             <label for=""><b>Branch</b></label>
+                    
+                           <select class="form-control" name="br" id="branch"  readonly >
+                               <option>{{ Useradd.br }}</option>
+                               <option>CSE</option>
+                               <option>ECE</option>
+                               <option>ME</option>
+                               <option>CE</option>
+                               
+                               </select>
+                    </div>
+                    <div class="col-md-2" ></div>
+                    <div class="col-md-5" >
+                        <label for=""><b>User Id</b></label>
+                            <input type="text" name="userid" class="form-control" placeholder="user id" value="{{ Useradd.userid }}" required/>
+                    </div></div><br>
+                    <div class="col-md-5" id="x"> <i class="fa fa-user-circle" aria-hidden="true" id="x1" style="font-size:280px;margin-left:80px;color:#008080"></i>
+                 <a><input type="submit" value="Update" class="btn" id="btn1" style="border-color:black;display:block;color:white;margin-left:80px;margin-top:10px"></a><br />
+                     </div>
+                   <!-- <a href="{%url 'showdata'%}" class="btn" id="btn1"><h3 style="color:white;">ADD</h3></a>-->
+
+                <div class="row mt-10">
+                        <div class="col-md-9" >
+                    <label for=""><b>Semester</b></label>
+                           <input type="text" class="form-control" name="sem" id="sem" value="{{ Useradd.sem }}"  readonly /> 
+                                </div></div><br />
+                                    
+                 <div class="row mt-10">
+                        <div class="col-md-9" >
+                        <label for=""><b>Batch</b></label>
+
+                            <select class="form-control" type="text" name="batch"  required >
+                                
+                              <option>{{ Useradd.batch }}</option>
+                             <option>2016-2020</option>
+                            <option>2017-2021</option>
+                            <option>2018-2022</option>
+                            <option>2019-2023</option>
+                            
+                            
+                          </select>
+                    </div></div><br />
+                <div class="row mt-10">
+                
+                        <div class="col-md-9" >
+                        <label for=""><b>E-mail</b></label>
+                        <input type="email" name="email" class="form-control" placeholder="Email" value="{{ Useradd.email }}" required/>
+                    </div>
+                        </div>
+                <div class="row mt-4">
+                        <div class="col-md-9" >
+                            <label for=""><b>D.O.B</b></label>
+                            <input type="date" name="DD" class="form-control" placeholder="Date Of Birth" value="{{ Useradd.DD}}" required/></div>                                  </div>      
+                      <h6><strong style="color:#3762f0;">{{ message }}</strong></h6>
+                    
+                
+                </form>
+                
+                
+            </div>
+        </div>
+    </div>
+    <br />
+     <!-- ##### Footer Area Start ##### -->
+    <footer class="footer-area">
+        <!-- Top Footer Area -->
+        <div class="top-footer-area">
+            <div class="container">
+                <div class="row">
+            <div class="col-md-12">
+            <div class="row">
+              <div class="col-md-4">
+                <h3 class="footer-heading mb-4">About Us</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque facere laudantium magnam voluptatum autem. Amet aliquid nesciunt veritatis aliquam.</p>
+              </div>
+                <div class="col-md-4">
+                <h3 class="footer-heading mb-4">Addresss</h3>
+                <ul class="list-unstyled">
+            <li class="mb-2">Lyallpur Khalsa College of Engineering,Jalandhar</li>
+            <li class="mb-2">987654321</li>
+            <li class="mb-2">987654331</li>
+            <li class="mb-2">preetkomal843@gmail.com</li>
+          </ul></div>
+              
+              <div class="col-md-4 ml-auto">
+                <h3 class="footer-heading mb-4 ">Quick Links</h3>
+                <ul class="list-unstyled">
+                  <li><a href="#about-section">About Us</a></li>
+                  <li><a href="#services-section" >Services</a></li>
+                  <li><a href="#testimonials-section">Testimonials</a></li>
+                  <li><a href="#contact-section">Contact Us</a></li>
+                </ul>
+              </div>
+          
+                </div>
+                </div>
+                </div>
+            </div>
+        <br>
+             <p><a href="#"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                 Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | <i class="fa fa-heart-o" aria-hidden="true"></i></a> </p><br></div>
+<!-- Link back to Color
+
+        <!-- Bottom Footer Area -->
+        <div class="bottom-footer-area d-flex justify-content-between align-items-center">
+            <!-- Contact Info -->
+            <div class="contact-info">
+                <a href="#"><span>Phone:</span>9876543210</a>
+                <a href="#"><span>Email:</span> preet@gmail.com</a>
+            </div>
+            <!-- Follow Us -->
+            <div class="follow-us">
+                <span>Follow us</span>
+                <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+                <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+            </div>
+        </div>
+    </footer>
+    <!-- ##### Footer Area End ##### -->
+
+    <!-- ##### All Javascript Script ##### -->
+    <!-- jQuery-2.2.4 js -->
+   <script src="{% static 'js/jquery/jquery-2.2.4.min.js' %}"></script>
+    <!-- Popper js -->
+    <script src="{% static 'js/bootstrap/popper.min.js' %}"></script>
+    <!-- Bootstrap js -->
+    <script src="{% static 'js/bootstrap/bootstrap.min.js' %}"></script>
+    <!-- All Plugins js -->
+    <script src="{% static 'js/plugins/plugins.js' %}"></script>
+    <!-- Active js -->
+    <script src="{% static 'js/active.js' %}"></script>
+</body>
+
+</html>
+      
+    

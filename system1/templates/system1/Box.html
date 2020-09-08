@@ -1,0 +1,251 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <!-- The above 4 meta tags *Must* come first in the head; any other head content must come *after* these tags -->
+
+    <!-- Title -->
+   <title>{% load static %}ERP</title>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+   
+
+
+
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700|Raleway:300,400,500,600,700" rel="stylesheet">
+      <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+      <link rel="stylesheet" href="{% static 'css/owl.carousel.min.css' %}">
+      <link rel="stylesheet" href="{% static 'css/animate.css' %}">
+      <link rel="stylesheet" href="{% static 'css/magnific-popup.css' %}">
+      <link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}">
+      <link rel="stylesheet" href="{% static 'css/classy-nav.min.css' %}">
+
+    <!-- Favicon -->
+    <link rel="icon" href="{% static 'img/core-img/favicon.ico' %}">
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+<style>
+        #b{
+            background-color: #3762f0;
+            color: white;
+        }
+         
+            #btn1{
+            text-align: center;
+            background-color:  #3762f0;
+            font-size:20px;
+            width: 40%;
+           
+           
+           
+        }
+            #btn2{
+            text-align: center;
+            background-color:  #3762f0;
+           border-color:black;
+           display:block;
+           width: 70%;
+           
+           
+        }
+            .border{
+                box-shadow:0 4px 8px rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+            }
+           
+#x{
+    float:right;
+ 
+   
+   
+}</style>
+
+</head>
+
+<body style="">
+    <!-- Preloader -->
+    <div id="preloader">
+        <div class="spinner"></div>
+    </div>
+    <br />
+    <!-- ##### Header Area Start ##### -->
+    <header class="header-area">
+
+       
+        <!-- Navbar Area -->
+        <div class="clever-main-menu ">
+            <div class="classy-nav-container breakpoint-off">
+                <!-- Menu -->
+                <nav class="classy-navbar justify-content-between" id="cleverNav">
+
+                    <!-- Logo -->
+                   <a class="nav-brand" href="#">
+                    <h1 style="color:white;float:left;font-family:'Times New Roman', Times, serif"><b>COMPLAINT BOX</b></h1></a><br /><br />
+                 
+
+                    <!-- Navbar Toggler -->
+                    <div class="classy-navbar-toggler">
+                        <span class="navbarToggler"><span></span><span></span><span></span></span>
+                    </div>
+
+                    <!-- Menu -->
+                    <div class="classy-menu">
+
+                        <!-- Close Button -->
+                        <div class="classycloseIcon">
+                            <div class="cross-wrap"><span class="top"></span><span class="bottom"></span></div>
+                        </div>
+             
+                        <!-- Nav Start -->
+                        <div class="classynav">
+                           
+                            <!-- Register / Login -->
+                            <div class="register-login-area ml-50 mr-40">
+                               
+                                <a href="{%url 'user'%}" class="btn active">Back</a>
+                             </div>
+
+                        </div>
+                       
+                        <!-- Nav End -->
+                    </div>
+                </nav><div class="container-fluid" style="width:100%;height:5px;background-color:#4cff00"></div>
+ 
+            </div>
+        </div>
+                        </header>
+    <!-- ##### Header Area End ##### -->
+   <br />
+    {% if message %}
+   <h4 style="color:#008080;">
+       <div class="container alert alert-info alert-dismissible" style="border-radius:5px;padding:15px"> <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+       {{message}}</div></h4>{% endif %}<br />
+    
+      <div class="container" >
+        <div class="row" >
+           
+            <div class="col-lg-12  mx-auto p-5 mt-5 border "  style="background-color:white">
+               <center> <h1 style="color:black; font-family:'Times New Roman', Times, serif"  ><span>Department <span class="section-title mb-3" style="color:#4cff00">of Academic and Student Affairs</span></span></h1></center>
+  <center>
+                <b>Feel free to register your complaint as anonymous user.</b>
+                <p>A complaint is a statement in which you express your dissatisfaction with a particular situation.</p><br /></center>
+               
+                <form method="post" action="/cbox/">
+             {% csrf_token %}
+       
+                <div class="row mt-3 ">
+                     
+                        <div class="col-md-6 mx-auto" >
+
+
+                            <label for=""><b>What is your complaint about?</b></label>
+                            <select class="form-control" name="com" id="com" style="font-size:15px;height:35px" required >
+                                 <option >General</option>
+                                <option >About adminstration</option>
+                                 <option >About faculty</option>
+                                     <option >About infrastructure</option>
+                               </select> <br /></div></div>
+                    <div class="row mt-3">
+                 
+                         <div class="col-md-6 mx-auto" >
+                        <label for=""><b>Elaborate your complaint here:</b></label>
+                            <textarea class="form-control" rows="7" name="co" id="co"></textarea>                                          
+                              </div></div>                              
+               <br><br /><br />
+             
+               
+                <br><br /><center><div style="margin:auto">
+                   <input type="submit" value="Submit" class="btn" id="btn1" 
+                          style="border-color:#4cff00;background-color:#4cff00;font-family:'Cambria Math';color:white;margin-left:auto;width:100px"><br />
+                    </div></center>
+                   
+                </form>
+               
+               
+            </div>
+        </div>
+    </div><br />
+   
+     <!-- ##### Footer Area Start ##### -->
+    <footer class="footer-area">
+        <!-- Top Footer Area -->
+        <div class="top-footer-area">
+            <div class="container">
+                <div class="row">
+            <div class="col-md-12">
+            <div class="row">
+              <div class="col-md-4">
+                <h3 class="footer-heading mb-4">About Us</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque facere laudantium magnam voluptatum autem. Amet aliquid nesciunt veritatis aliquam.</p>
+              </div>
+                <div class="col-md-4">
+                <h3 class="footer-heading mb-4">Addresss</h3>
+                <ul class="list-unstyled">
+            <li class="mb-2">Lyallpur Khalsa College of Engineering,Jalandhar</li>
+            <li class="mb-2">987654321</li>
+            <li class="mb-2">987654331</li>
+            <li class="mb-2">preetkomal843@gmail.com</li>
+          </ul></div>
+             
+              <div class="col-md-4 ml-auto">
+                <h3 class="footer-heading mb-4 ">Quick Links</h3>
+                <ul class="list-unstyled">
+                  <li><a href="#about-section">About Us</a></li>
+                  <li><a href="#services-section" >Services</a></li>
+                  <li><a href="#testimonials-section">Testimonials</a></li>
+                  <li><a href="#contact-section">Contact Us</a></li>
+                </ul>
+              </div>
+         
+                </div>
+                </div>
+                </div>
+            </div>
+        <br>
+             <p><a href="#"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                 Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | <i class="fa fa-heart-o" aria-hidden="true"></i></a> </p><br></div>
+<!-- Link back to Color
+
+        <!-- Bottom Footer Area -->
+        <div class="bottom-footer-area d-flex justify-content-between align-items-center">
+            <!-- Contact Info -->
+            <div class="contact-info">
+                <a href="#"><span>Phone:</span>9876543210</a>
+                <a href="#"><span>Email:</span> preet@gmail.com</a>
+            </div>
+            <!-- Follow Us -->
+            <div class="follow-us">
+                <span>Follow us</span>
+                <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+                <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+            </div>
+        </div>
+    </footer>
+    <!-- ##### Footer Area End ##### -->
+
+    <!-- ##### All Javascript Script ##### -->
+    <!-- jQuery-2.2.4 js -->
+   <script src="{% static 'js/jquery/jquery-2.2.4.min.js' %}"></script>
+    <!-- Popper js -->
+    <script src="{% static 'js/bootstrap/popper.min.js' %}"></script>
+    <!-- Bootstrap js -->
+    <script src="{% static 'js/bootstrap/bootstrap.min.js' %}"></script>s
+    <!-- All Plugins js -->
+    <script src="{% static 'js/plugins/plugins.js' %}"></script>
+    <!-- Active js -->
+    <script src="{% static 'js/active.js' %}"></script>
+   
+</body>
+
+</html>
+
+     
+    

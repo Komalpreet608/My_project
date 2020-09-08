@@ -1,0 +1,397 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- The above 4 meta tags *Must* come first in the head; any other head content must come *after* these tags -->
+
+    <!-- Title -->
+   <title>{% load static %}ERP</title>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+    <script>
+        function check1(form)
+        {
+            var a3;
+            a1 = form.Dlec.value;
+            a2 = form.Alec.value;
+            a3 = (parseInt(a1) * 100) / parseInt(a2);
+            form.per.value = a3.toFixed(2);
+
+
+        }
+    </script>
+    <script type="text/javascript">
+      var result;
+    $(document).ready(function(){
+        // Branch
+        var br_arr = new Array("Select Branch","CSE","ECE","ME","CE");
+
+        $.each(br_arr, function (i, item) {
+            $('#br').append($('<option>', {
+                value: i,
+                text : item,
+            }, '</option>' ));
+        });
+
+        // Semester
+        var s_a = new Array();
+        s_a[0]="Select Semester";
+        s_a[1] = "Select Semester|CSE-1|CSE-2|CSE-3|CSE-4|CSE-5|CSE-6|CSE-7|CSE-8";
+        s_a[2]="Select Semester|ECE-1|ECE-2|ECE-3|ECE-4|ECE-5|ECE-6|ECE-7|ECE-8";
+        s_a[3]="Select Semester|ME-1|ME-2|ME-3|ME-4|ME-5|ME-6|ME-7|ME-8";
+        s_a[4] = "Select Semester|CE-1|CE-2|CE-3|CE-4|CE-5|CE-6|CE-7|CE-8";
+
+        var c_a = new Array();
+        c_a[1] = c_a['CSE-1'] = "M1|ENGLISH|PHYSICS";
+        c_a[1] = c_a['CSE-2'] = "Computer-Architecture|Mathematics3|Digital-Circuits-and-Logic-Design|Data-Structures|Object-Oriented-Programming-using-C++|Data-Structures-Lab|Institutional-Practical-Training|Digital-Circuits-&-Logic-Design-Lab|Object-Oriented-Programming-using-Cpp-Lab";
+
+        c_a[1] = c_a['CSE-3'] = "Computer-Architecture|Mathematics3|Digital-Circuits-and-Logic-Design|Data-Structures|Object-Oriented-Programming-using-C++|Data-Structures-Lab|Institutional-Practical-Training|Digital-Circuits-&-Logic-Design-Lab|Object-Oriented-Programming-using-Cpp-Lab";
+
+        c_a[1] = c_a['CSE-4'] = "Operating-Systems|Discrete-Structures|Computer-Networks-I|Microprocessor-andd-Assembly-Language|System-Programming-Operating-System-Lab|Computer-Networks-1-Lab|Microprocessor-and-Assembly-Language-lab|Programming-Lab|System-Programming-Lab";
+
+        c_a[1] = c_a['CSE-5'] = " Computer-Networks–2|Relational-Database-Management-System|Design-and-Analysis-of-Algorithms|Computer-Graphics-Computer-Peripherals-and-Interfaces|RDBMS-Lab|Computer-Networks–2-Lab|Design-and-Analysis-of-Algorithms-Lab|Computer-Graphics-Lab|Industrial-Training";
+
+        c_a[1] = c_a['CSE-6'] = "Simulation-and-Modeling|RDBMS2|Software-Engineering-|Elective–|open-Elective|RDBMS-2-Lab|Free-or-Open-Source-Software-Lab|Software-Engineering-Lab|Simulation-and-Modeling-Lab ";
+
+        c_a[1] = c_a['CSE-7'] = "Artificial-Intelligence|Theory-of-Computation|Project-Elective–2|Elective–3|Artificial-Intelligence-Lab  ";
+
+        c_a[1] = c_a['CSE-8'] = "Software-Training|Industry-Oriented-Project-Training ";
+
+
+        c_a[2] = c_a['ECE-1'] = "M1|ENGLISH|PHYSICS";
+        c_a[2] = c_a['ECE-2'] = "M2|CHEMISTRY|EVS";
+        c_a[2] = c_a['ECE-3'] = "Circuit-Theory|Transformers-and-Direct-Current|Electrical-Measurements-and-Instrumentation|Electronic-Devices-and-Circuits|Laboratory-1-Semiconductor-Devices-and-Circuit-Theory|Laboratory-2-Electrical-Machines-1|Laboratory-3-Electrical-Measurements|Institutional-Training(Undertaken after 2nd semester)";
+
+        c_a[2] = c_a['ECE-4'] = "Linear-Control-Systems|Electromagnetic-Fields|Digital-Electronics|Power-System–1|Electrical-Machinery-2|Transducers&Signal-Conditioning|Digital-Electronics-Lab|Electrical-Machinery-2-Lab|Power-System-1-Lab";
+
+        c_a[2] = c_a['ECE-5'] = "Communication-System|Power-system-2|mioprocessor|Power-electronics|Numerical-and-Statistical-Methods|Communication-system-Lab|Power-system-II-Lab|Microprocessor-Lab|Industrial-Training ";
+
+        c_a[2] = c_a['ECE-6'] = "Electric-power-and-utilization|Digital-Signal-Processing|Non-Linear-and-Digital-control-Systems|Microcontroller-and-PLC|Open-elective|Elective –I|Microcontroller-and-PLC-Lab|Power-Electronics-and Drives-Lab|Digital-Signal-Processing-Lab ";
+
+        c_a[2] = c_a['ECE-7'] = "Power-System-Analysis|High-Voltage-Engineering|Antenna-&-Wave-Propagation|Elective2|Elective3Project-Work|Power-System-Analysis-LAB|Seminar";
+
+        c_a[2] = c_a['ECE-8'] = "Power-System-Analysis|High-Voltage-Engineering|Antenna-&-Wave-Propagation|Elective-2|Elective3|Project-Work|Power-System-Analysis-LAB|Seminar";
+
+
+        c_a[1] = c_a['ME-1'] = "M1|ENGLISH|PHYSICS";
+        c_a[2] = c_a['ME-2'] = "M2|CHEMISTRY|EVS";
+        c_a[3] = c_a['ME-3'] = "Strength-of-Materials|Theory-of-Machines|Machine-Drawing|Applied-Thermodynamics|Manufacturing-Processes|Engineering-Materials-&-Metallurgy|Engineering Materials & Metallurgy Lab|Strength of Materials Lab|Applied Thermodynamics Lab |Workshop Training";
+        c_a[3] = c_a['ME-4'] = "Strength-of-Materials-2|Theory-of-Machines–2|Fluid-Mechanics|Applied-Thermodynamics-2|Manufacturing-Processes-2|Fluid-Mechanics-Lab|Manufacturing-Processes-Lab|Theory-of-Machines-Lab ";
+        c_a[3] = c_a['ME-5'] = "MathematicS-III|Design of Machine elements-|Computer aided Design and Manufacturing |Mechanical-Measurement-and-Metrology|Industrial Automation-and-Robotics|Automobile|Engineering-Computer-aided|Design-and-Manufacturing-Lab|Mechanical-Measurement-and-Metrology-Lab|Industrial-Automation-and-Robotics-Lab|Automobile-Engineering-Lab";
+        c_a[3] = c_a['ME-6'] = "Design-of-Machine|Elements-2|Heat-Transfer|Fluid-Machinery|Statistical-and-Numerical-Methods-in-Engineering|Departmental-Elective|Heat-Transfer-Lab|Fluid-Machinery-lab|Minor-Project";
+        c_a[3] = c_a['ME-7'] = " Industrial-engineering-and-management|Refrigeration-and-Air-conditioning|Mechanical-Vibrations|Department-Elective-2|Refrigeration-and-Air-conditioning-Lab|Mechanical-Vibrations lab|Major-Project";
+        c_a[3] = c_a['ME-8'] = "Industrial-engineering-and-management|Refrigeration-and-Air-conditioning|Mechanical-Vibrations|Department-Elective-2|Refrigeration-and-Air-conditioning-Lab|Mechanical-Vibrations|Major-Project";
+
+        c_a[1] = c_a['CE-1'] = "M1|ENGLISH|PHYSICS";
+        c_a[2] = c_a['CE-2'] = "M2|CHEMISTRY|EVS";
+        c_a[3] = c_a['CE-3'] = "Fluid-Mechanics-1|Rock-Mechanics-&-Engg-Geology|Strength-of-Materials|Surveying|Building-Materials-&-Construction|Fluid Mechanics-I Lab |Strength of Materials Lab |Surveying Lab |Workshop Training of 4 weeks ";
+        c_a[3] = c_a['CE-4'] = " Geomatics-Engineering|Construction-Machinery-&-WorksManagement|Design-of-Concrete-Structures-1|Fluid-Mechanics-2|Irrigation-Engineering-1 |Structural-Analysis-1|Concrete-Technology-Lab|Structural Analysis Lab";
+        c_a[3] = c_a['CE-5'] = " Design-of-Steel-Structures-I|Geotechnical-Engineering|Structural-Analysis-2|Transportation-Engineering-1|Environmental-Engineering–1|Transportation-Engineering-Lab|Geotechnical-Engineering-Lab|Computer-Aided-Structural-Drawing1|Survey-Camp-of-04-weeks-duration-after-4th-Semester";
+        c_a[3] = c_a['CE-6'] = "Design-of-Concrete-Structures-2|Elements-of-Earthquake-Engineering|Foundation-Engineering|Numerical-Methods-in-Civil-Engineering|Professional-Practice|Environment-Engineering–2|Environmental-Engineering-Lab|Computer-Aided|Structural-Drawing2";
+        c_a[3] = c_a['CE-7'] = "Software-engineeing|Industrial-Training";
+        c_a[3] = c_a['CE-8'] = "Design-of-Steel-Structures-2|Disaster-Management|Irrigation-Engineering-2|Transportation-Engineering-2|Elective–1|Elective–2|Project"; // Cities
+
+        $('#br').change(function () {
+            var c = $(this).val();
+            //alert(country_arr[c]);
+            result = br_arr[c];
+            $("#hbr").val(result);
+            var state_arr = s_a[c].split("|");
+            $('#sem').empty();
+            $('#sub').empty();
+            if(c==0){
+                $('#sem').append($('<option>', {
+                    value: '0',
+                    text: 'Select Semester',
+                }, '</option>'));
+            }else {
+                $.each(state_arr, function (i, item_state) {
+                    $('#sem').append($('<option>', {
+                        value: item_state,
+                        text: item_state,
+                    }, '</option>'));
+                });
+            }
+            $('#sub').append($('<option>', {
+                value: '0',
+                text: 'Select Subject',
+            }, '</option>'));
+        });
+
+        $('#sem').change(function(){
+            var s = $(this).val();
+            if(s=='Select Semester'){
+                $('#sub').empty();
+                $('#sub').append($('<option>', {
+                    value: '0',
+                    text: 'Select Subject',
+                }, '</option>'));
+            }
+            var city_arr = c_a[s].split("|");
+            $('#sub').empty();
+
+            $.each(city_arr, function (j, item_city) {
+                $('#sub').append($('<option>', {
+                    value: item_city,
+                    text: item_city,
+                }, '</option>'));
+            });
+
+
+        });
+    });
+</script>
+
+
+
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700|Raleway:300,400,500,600,700" rel="stylesheet">
+      <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+      <link rel="stylesheet" href="{% static 'css/owl.carousel.min.css' %}">
+      <link rel="stylesheet" href="{% static 'css/animate.css' %}">
+      <link rel="stylesheet" href="{% static 'css/magnific-popup.css' %}">
+      <link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}">
+      <link rel="stylesheet" href="{% static 'css/classy-nav.min.css' %}">
+
+    <!-- Favicon -->
+    <link rel="icon" href="{% static 'img/core-img/favicon.ico' %}">
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+<style>
+    .topnav {
+        
+  overflow: hidden;
+  background-color: #008080;
+}
+
+.topnav a {
+  float: left;
+   text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+
+
+        #b{
+            background-color: #3762f0;
+            color: white; 
+        }
+         
+            #btn1{
+            text-align: center;
+            background-color:  #008080;
+            font-size:20px;
+            
+            
+            
+            
+        }
+            .border{
+                box-shadow:0 4px 8px rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+            }
+           
+#x{
+    float:right;
+ }
+    @media screen and (max-width: 600px) {
+        .col-sm-12 input[type=submit]{
+           margin:auto;
+           text-align: center;
+           padding:5px;    
+        }
+        .topnav a{
+            float: none;
+            display: block;
+            text-align: left;
+            width: 100%;
+            margin: 0;
+            padding: 14px;
+        }
+        .topnav btn{float: none;
+            display: block;
+            text-align: center;
+            width: 100%;
+            margin-bottom: 10px;
+            padding: 14px;}
+        
+    }
+</style>
+
+</head>
+
+<body style="">
+    <!-- Preloader -->
+    <div id="preloader">
+        <div class="spinner"></div>
+    </div>
+    <br />
+    <div class="topnav">
+  <!-- Logo -->
+  <a class="nav-brand" href="" ><img src="{% static 'img/add1.png' %}" height="60" width="70" style="float:left;"/>
+                    <h1 style="color:white;float:left;"><b>ADD SUBJECTS</b></h1></a>
+            <button type="button" class="btn " style="float:right;margin-right:13px;height:45px;margin-top:25px"  > 
+             <a href="{%url 'Teacher' %}" style="color:#008080;padding-top:2px" >BACK</a></button>
+            </div>
+   <br />
+    {% if message %}
+   <h4><div class="alert alert-success alert-dismissible"> <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>{{message}}</div></h4>{% endif %}
+  
+      <div class="container" >
+        <div class="row" >
+            
+            <div class="col-lg-12  mx-auto p-5 mt-5 border "  style="background-color:white">
+                
+                <form method="post" action="/Attend/">
+             {% csrf_token %}
+        
+                <div class="row ">
+                     <div class="col-md-3" >
+                       <label for=""><b>UserID</b></label>
+                            <input type="text" name="userid" class="form-control" placeholder="" value="{{username}}" readonly/>
+                        
+                    </div>
+                        <div class="col-md-3" >
+                            <label for=""><b>Choose Branch</b></label>
+                            <select class="form-control" name="br" id="br" required >
+                               </select> </div><input type="hidden"  name="hbr" id="hbr" />
+                    
+                    <div class="col-md-3" >
+                        <label for=""><b>Choose Semester</b></label>
+                           <select class="form-control" name="sem" id="sem" required >
+                                
+                                
+                          </select> </div>
+                    
+                    <div class="col-md-3" >
+                        <label for=""><b>Choose Subject</b></label>
+                            <select class="form-control" name="sub" id="sub" required >
+                                
+                                          
+                             </select> </div>
+                    
+                </div><br><br /><br />
+                <!--<div class="row mt-20">
+                        <div class="col-md-3" >
+                            <label for=""><b>University Roll no.</b></label>
+                            <input type="text" name="rno" class="form-control" pattern="[0-9]{7}" placeholder="Rollno" required/></div>
+                    <div class="col-md-1" ></div>
+                    
+                <div class="col-md-3" ><label for=""><b> Delivered Lecture</b></label>
+                            <input type="number" name="Dlec" class="form-control" placeholder="Delivered Lecture" required/></div>
+                    <div class="col-md-1" ></div>
+                    
+                    <div class="col-md-3" >
+                        <label for=""><b>Attended Lecture</b></label>
+                            <input type="number" name="Alec" class="form-control" placeholder="Attended Lecture" required/>
+                    </div></div><br /><br />
+
+                 <div class="row mt-20">
+                    <div class="col-md-3" >
+                       <label for=""><b>Percentage</b></label>
+                            <input type="text" name="per" class="form-control" placeholder="Percentage" required/>
+                        
+                    </div>
+                 <div class="col-md-1 mt-3" >
+                    <br />
+                   <input type="button" style="width:20px;height:25px" value="%" onclick="check1(this.form)" >
+                  </div>
+                   </div>
+                    
+                   <br />-->
+                
+                <br><br /><div class="col-sm-12 col-xs-12" >
+                      <a href="{%url 'Attend'%}"><input type="submit" value="Add" class="btn" id="btn1" style="border-color:black;display:
+    block;color:white;margin:auto;width:25%"></a><br />
+                    </div>
+                   <!--<a href="{%url 'showAttend'%}" class="btn" id="btn1"><h3 style="color:white;">show</h3></a>-->
+
+                     
+                    
+                
+                </form>
+                
+               
+            </div>
+        </div>
+    </div><br />
+    
+     <!-- ##### Footer Area Start ##### -->
+    <footer class="footer-area">
+        <!-- Top Footer Area -->
+        <div class="top-footer-area">
+            <div class="container">
+                <div class="row">
+            <div class="col-md-12">
+            <div class="row">
+              <div class="col-md-4">
+                <h3 class="footer-heading mb-4">About Us</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque facere laudantium magnam voluptatum autem. Amet aliquid nesciunt veritatis aliquam.</p>
+              </div>
+                <div class="col-md-4">
+                <h3 class="footer-heading mb-4">Addresss</h3>
+                <ul class="list-unstyled">
+            <li class="mb-2">Lyallpur Khalsa College of Engineering,Jalandhar</li>
+            <li class="mb-2">987654321</li>
+            <li class="mb-2">987654331</li>
+            <li class="mb-2">preetkomal843@gmail.com</li>
+          </ul></div>
+              
+              <div class="col-md-4 ml-auto">
+                <h3 class="footer-heading mb-4 ">Quick Links</h3>
+                <ul class="list-unstyled">
+                  <li><a href="#about-section">About Us</a></li>
+                  <li><a href="#services-section" >Services</a></li>
+                  <li><a href="#testimonials-section">Testimonials</a></li>
+                  <li><a href="#contact-section">Contact Us</a></li>
+                </ul>
+              </div>
+          
+                </div>
+                </div>
+                </div>
+            </div>
+        <br>
+             <p><a href="#"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                 Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | <i class="fa fa-heart-o" aria-hidden="true"></i></a> </p><br></div>
+<!-- Link back to Color
+
+        <!-- Bottom Footer Area -->
+        <div class="bottom-footer-area d-flex justify-content-between align-items-center">
+            <!-- Contact Info -->
+            <div class="contact-info">
+                <a href="#"><span>Phone:</span>9876543210</a>
+                <a href="#"><span>Email:</span> preet@gmail.com</a>
+            </div>
+            <!-- Follow Us -->
+            <div class="follow-us">
+                <span>Follow us</span>
+                <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+                <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+            </div>
+        </div>
+    </footer>
+    <!-- ##### Footer Area End ##### -->
+
+    <!-- ##### All Javascript Script ##### -->
+    <!-- jQuery-2.2.4 js -->
+   <script src="{% static 'js/jquery/jquery-2.2.4.min.js' %}"></script>
+    <!-- Popper js -->
+    <script src="{% static 'js/bootstrap/popper.min.js' %}"></script>
+    <!-- Bootstrap js -->
+    <script src="{% static 'js/bootstrap/bootstrap.min.js' %}"></script>
+    <!-- All Plugins js -->
+    <script src="{% static 'js/plugins/plugins.js' %}"></script>
+    <!-- Active js -->
+    <script src="{% static 'js/active.js' %}"></script>
+    
+</body>
+
+</html>
+      
+    

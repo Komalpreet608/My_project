@@ -1,0 +1,194 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>{% load static %}ERP</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700|Raleway:300,400,500,600,700" rel="stylesheet">
+      <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+      <link rel="stylesheet" href="{% static 'css/owl.carousel.min.css' %}">
+      <link rel="stylesheet" href="{% static 'css/animate.css' %}">
+      <link rel="stylesheet" href="{% static 'css/magnific-popup.css' %}">
+      <link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}">
+      <link rel="stylesheet" href="{% static 'css/classy-nav.min.css' %}">
+
+    <!-- Favicon -->
+    <link rel="icon" href="{% static 'img/core-img/favicon.ico' %}">
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+   
+
+
+<style>
+#customers {
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#customers td, #customers th {
+  border: 2px solid #ddd;
+  padding: 8px;
+}
+
+#customers tr:nth-child(even){background-color: #f2f2f2;}
+
+#customers tr:hover {background-color: #ddd;}
+
+#customers th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: center;
+  font-size: 15px;
+  background-color: gray;
+  color: white;
+}
+input[type=text]{font-size:15px}
+</style>
+</head>
+<body><br />
+    
+   
+    {% autoescape off %}
+    {{ var.text }}
+{% endautoescape %}
+
+ {% if students %}  
+     {% if message %}
+   <h4 style="color:#008080;">
+       
+       <div class="container alert alert-info alert-dismissible" style="border-radius:5px;"> <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+       {{message}}</div></h4>{% endif %}<br />
+    <!-- ##### Header Area Start ##### -->
+     <header class="header-area">
+
+          
+        <!-- Navbar Area -->
+        <div class="clever-main-menu">
+            <div class="classy-nav-container breakpoint-off">
+                <!-- Menu -->
+                <nav class="classy-navbar justify-content-between" id="cleverNav">
+
+                    <!-- Logo -->
+                    <a class="nav-brand" href=""><h1 style="color:white"> ASSIGNMENT-2 REPORT</h1></a>
+
+                    <!-- Navbar Toggler -->
+                    <div class="classy-navbar-toggler">
+                        <span class="navbarToggler"><span></span><span></span><span></span></span>
+                    </div>
+
+                    <!-- Menu -->
+                    <div class="classy-menu">
+
+                        <!-- Close Button -->
+                        <div class="classycloseIcon">
+                            <div class="cross-wrap"><span class="top"></span><span class="bottom"></span></div>
+                        </div>
+
+                        <!-- Nav Start -->
+                        <div class="classynav">
+                            <!-- Search Button -->
+                            <div class="search-area">
+                               <!-- <form>
+                                
+                                <input  class="form-control" id="search" type="text" placeholder="Search">
+                                <button ><i class="fa fa-search" aria-hidden="true"></i></button></form>
+                                <!--<form action="#" method="post">
+                                    <input  class="form-control" id="myInput" type="text" placeholder="Search">
+                                    <i class="fa fa-search" aria-hidden="true"></i>
+                                </form>-->
+                            </div>
+
+                            <!-- Register / Login -->
+                            <div class="register-login-area">
+                                
+                                <a href="{%url 'Teacher' %}" class="btn active">BACK</a>
+                            </div>
+
+                        </div>
+                        <!-- Nav End -->
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </header>
+    <!-- ##### Header Area End ##### -->
+   
+<table id="customers">
+    <thead>
+  <tr>
+        <th>Roll no</th>
+        <th>Branch</th>
+        <th>Sem</th>
+        <th>Subject</th>
+        <th>Assignment</th>
+        
+        <th>Maximum Marks</th>
+        <th>Marks Obtained</th>
+       
+  </tr></thead>
+    <form method="post" action="/Mstupdate/">
+             {% csrf_token %}
+                  
+     {% for Useradd in students %}
+       
+    <tbody id="myTable">
+       <tr> 
+               
+             <td>      
+ <input type="text" name="rno" class="form-control"  value="{{ Useradd.rno}}" readonly /></td>
+             <td>      
+ <input type="text" name="br" class="form-control"  value="{{ Useradd.br}}" readonly/></td>
+   <td>      
+ <input type="text" name="sem" class="form-control"  value="{{ Useradd.sem }}" readonly></td>
+  
+            <td><input type="text" name="sub" class="form-control"  value="{{Useradd.sub}}" readonly></td>
+          <td>  <input type="text" name="ex" class="form-control"  value="{{Useradd.ex}}"></td>
+              
+            <td> <input type="text" name="max" class="form-control" value="{{Useradd.max}}"  placeholder="" required/>
+                </td>
+            <td><input type="text" name="mo" class="form-control" value="{{Useradd.mo}}" placeholder="" required/>  
+                 </td>
+  
+         
+           
+        </tr>
+    </tbody>
+    	
+    {% endfor %}
+        	<div class="col-sm-12 col-xs-12" >
+                    <input type="submit" value="UPDATE" class="btn"  style="display:block;color:#008080;border:double;
+                 background-color:#d7e0fc;border-radius:5px;margin:auto;padding-left:60px;font-size:20px;margin-top:10px;margin-bottom:10px;padding-right:60px">
+                    </div>
+        
+           </form>
+   
+          </table>
+           
+    <!--<input type="submit" value="ADD" style="color:red;margin-left:10px">-->
+	
+    {% else %}
+    <br />
+  <div class="col-md-12"> <h3 style="color:white;background-color:skyblue;padding:10px;border-radius:5px;width:40%;margin-left:10px"><b>{{ message }}</b></h3></div>
+      {% endif %}
+   
+  <script>
+$(document).ready(function(){
+  $("#search").on("keyup", function() {
+    var value = $(this).val().toLowerCase();
+    $("#myTable tr").filter(function() {
+      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+    });
+  });
+});
+</script>
+    
+
+
+</body>
+</html>

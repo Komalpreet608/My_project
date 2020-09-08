@@ -1,0 +1,46 @@
+<html>
+<head>
+    <title> {% load static %}ERP </title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="{% static 'css/Stylesheet1.css' %}">
+    <style> body {
+          background-image: url({% static 'img/banner1.jpg' %})
+      }</style>
+
+    
+</head>
+    <body>
+        
+        <div class="bg-image"></div>
+            <div class="login-box" >
+                 
+						<h3 style="margin-top:5px">CHANGE PASSWORD</h3>	
+					
+				      <br>
+									
+							<form action="/change/" method="post">
+                                <label>UserID</label>
+                                <input type="text" class="lock" name="password1" placeholder="UserID" required="" />
+                                <label>New Password</label>
+								<input type="password" class="lock" name="password2" placeholder="New password" required="" />
+                                <label>Confirm Password</label>
+								<input type="password" class="lock" name="password3" placeholder="Confirm password" required="" />
+								
+								<input type="submit" value="SUBMIT">
+                                 
+                                <strong>{{message}}</strong>
+							</form>	
+                            
+				
+                							
+
+			<!-- //login -->
+					<div class="clear"></div>
+				   </div>
+        </body>
+</html>
+
+
+			

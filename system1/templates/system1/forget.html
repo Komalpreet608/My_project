@@ -1,0 +1,40 @@
+<html>
+<head>
+    <title> {% load static %}ERP </title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+  <link rel="stylesheet" href="{% static 'css/Stylesheet1.css' %}">
+
+    </head>
+    <body>
+        <div class="bg-image"></div>
+            <div class="login-box">
+                 
+						<h3>FORGET PASSWORD?</h3>	
+					
+				<br>
+						<div class="login-form">			
+						<form action="/ForgetP/" method="post" id="signup" autocomplete="off">
+							
+								
+									<input type="email" id="email" name="email" placeholder="Enter your email" title="Please enter a valid email" required="">
+									<p class="validation01">
+										<span class="invalid">Please enter a valid email address e.g. ryan@example.com</span>
+								
+									</p>
+								<br>
+								<input type="submit" value="SEND">
+                            
+						</form>																					
+						</div>	<h3 style="color:blue">{{username}}</h3>						
+					
+			<!-- //login -->
+					<div class="clear"></div>
+				   </div>
+        </body>
+</html>
+
+
+			
